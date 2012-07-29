@@ -1,0 +1,32 @@
+{
+  "name": "1password",
+  "description": "Installs 1password",
+  "long_description": "Description\n===========\n\nDownloads the 1Password trial version and untars it in /Applications\n\nRequirements\n============\n\nMac OS X. You must supply your own License Key for 1Password\n\nAttributes\n==========\n\n* `node['one_password']['version']` - sets the version of 1password, default 3.5.7.\n* `node['one_password']['checksum']` - sets the sha256sum of the zip file.\n\nUsage\n=====\n\nInclude the '1password' recipe in the node run list to install the 1Password application.\n\nLicense and Author\n==================\n\nSets up a server to be a public nameserver. To modify resource records in the environment, modify the tinydns-data.erb template.\n\nLICENSE AND AUTHOR\n==================\n\nAuthor:: Joshua Timberman (<joshua@housepub.org>)\n\nCopyright 2011, Joshua Timberman\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+  "maintainer": "Joshua Timberman",
+  "maintainer_email": "cookbooks@housepub.org",
+  "license": "Apache 2.0",
+  "platforms": {
+    "mac_os_x": [
+
+    ]
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "1.0.0"
+}

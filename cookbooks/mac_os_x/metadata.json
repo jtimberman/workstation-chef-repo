@@ -1,0 +1,30 @@
+{
+  "name": "mac_os_x",
+  "description": "Manage OS X user defaults settings",
+  "long_description": "Description\n===========\n\nManage Mac OS X user defaults system.\n\nRequirements\n============\n\nPlatform\n--------\n\nTested on Mac OS X 10.6.8, should work on any version.\n\nResource/Provider\n=================\n\nmac\\_os\\_x\\_userdefaults\n----\n\nManage the Mac OS X user defaults(1) system. The parameters to the resource are passed to the defaults command and the parameters follow convention of the OS X command. See the defaults(1) man page for detail on how the tool works.\n\n### Actions\n\n- :write: write the setting to the specified domain. Default.\n\n### Attribute Parameters\n\n- domain: The domain the defaults belong to. Required. Name attribute.\n- global: Whether the domain is global. Can be true or false. Default false.\n- key: The preference key. Required.\n- value: The value of the key. Required.\n- type: Value type of the preference key.\n- sudo: Set to true if the setting requires privileged access to modify. Default false.\n\n`value` settings of `1`, `TRUE` or `true` are treated as true by defaults(1), and are handled for truthiness in the provider.\n\n### Limitations\n\nThe current version cannot handle plists or dictionaries.\n\n### Examples\n\nSimple example that uses the `com.apple.systempreferences` domain, with a single key and value.\n\n    mac_os_x_userdefaults \"enable time machine on unsupported volumes\" do\n      domain \"com.apple.systempreferences\"\n      key \"TMShowUnsupportedNetworkVolumes\"\n      value \"1\"\n    end\n\nSpecify a global domain. Note that the key is not required for global domains.\n\n    mac_os_x_userdefaults \"full keyboard access to all controls\" do\n      domain \"AppleKeyboardUIMode\"\n      global true\n      value \"2\"\n    end\n\nA boolean type that uses truthiness (TRUE).\n\n    mac_os_x_userdefaults \"finder expanded save dialogs\" do\n      domain \"NSNavPanelExpandedStateForSaveMode\"\n      global true\n      value \"TRUE\"\n      type \"bool\"\n    end\n\nA setting that uses an int (integer) type.\n\n    mac_os_x_userdefaults \"enable OS X firewall\" do\n      domain \"/Library/Preferences/com.apple.alf\"\n      key \"globalstate\"\n      value \"1\"\n      type \"int\"\n    end\n\nLWRP's can send notifications, so we can change the Dock, and then refresh it to take effect.\n\n    execute \"killall Dock\" do\n      action :nothing\n    end\n\n    mac_os_x_userdefaults \"set dock size\" do\n      domain \"com.apple.dock\"\n      type \"integer\"\n      key \"tilesize\"\n      value \"20\"\n      notifies :run, \"execute[killall Dock]\"\n    end\n\nThis setting requires privileged access to modify, so tell it to use sudo. Note that this will prompt for the user password if sudo hasn't been modified for NOPASSWD.\n\n    mac_os_x_userdefaults \"disable time machine normal schedule\" do\n      domain \"/System/Library/LaunchDaemons/com.apple.backupd-auto\"\n      key \"Disabled\"\n      value \"1\"\n      sudo true\n    end\n\nmac\\_os\\_x\\_plist\\_file\n----\n\nManages the property list (plist) preferences file with the `cookbook_file` Chef resource. Files will be dropped in `Library/Preferences` under the home directory of the user running Chef.\n\n### Actions\n\n- :create: create the file. Default.\n\n### Attribute Parameters\n\n- source: file name to use in the files directory of the cookbook. Name attribute.\n- cookbook: cookbook where the plist file is located.\n\n### Examples\n\nWrite the iTerm 2 preferences to `~/Library/Preferences/com.googlecode.iterm2.plist`.\n\n    mac_os_x_plist_file \"com.googlecode.iterm2.plist\"\n\nRecipes\n=======\n\nThe recipes in this cookbook provide example usage of the defaults(1) LWRP, and have some useful system preference settings. They were originally based on work done in Pivotal Labs workstation management repository, though are new code given the LWRP rewrite.\n\n* https://github.com/pivotalexperimental/wschef\n\n### dock\\_preferences\n\nTurns on:\n\n* auto hide\n* magnification\n\nTurns off:\n\n* animation switching workspaces\n\nSets the tile size to really small.\n\n### finder\n\nSets Finder save dialogs to expanded by default.\n\n### firewall\n\nEnables the OS X firewall.\n\n### kbaccess\n\nEnables keyboard access to all window controls. In other words, \"Tab\" will cycle focus to buttons instead of just text entry fields.\n\n### key\\_repeat\n\nSet the default key repeat rate to fast and the delay to short.\n\n### screensaver\n\nEnables password protection for screensaver and sets the delay to ask for password.\n\n### time\\_machine\n\nEnable time machine to backup to unsupported devices like NAS drives or AFP shares.\n\nLicense and Author\n==================\n\nAuthor:: Joshua Timberman (<cookbooks@housepub.org>)\nAuthor:: Ben Bleything\n\nCopyright 2011, Joshua Timberman\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+  "maintainer": "Joshua Timberman",
+  "maintainer_email": "cookbooks@housepub.org",
+  "license": "Apache 2.0",
+  "platforms": {
+    "mac_os_x": ">= 0.0.0"
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "1.3.6"
+}

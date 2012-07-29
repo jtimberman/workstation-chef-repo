@@ -1,0 +1,30 @@
+{
+  "name": "xquartz",
+  "description": "Installs xquartz",
+  "long_description": "Description\n===========\n\nInstalls XQuartz on Mac OS X 10.8 to provide an X11 server.\n\nThis is not required on earlier versions of OS X as they include X11.\n\nAfter installation, you need to log out and back in for XQuartz to be\nusable as the X11 server.\n\nRequirements\n============\n\n## Platform:\n\n* Mac OS X, 10.8 or higher\n\n## Cookbooks:\n\n* dmg\n\nAttributes\n==========\n\n* `node['xquartz']['version']` - Version to install.\n* `node['xquartz']['url']` - Download URL.\n* `node['xquartz']['checksum']` - SHA256 checksum of downloaded dmg.\n\nLicense and Author\n==================\n\nAuthor:: Joshua Timberman <opensource@housepub.org>\nCopyright:: Copyright (c) 2012, Joshua Timberman\nLicense:: Apache License, Version 2.0\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n   http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+  "maintainer": "Joshua Timberman",
+  "maintainer_email": "opensource@housepub.org",
+  "license": "Apache 2.0",
+  "platforms": {
+  },
+  "dependencies": {
+    "dmg": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "0.0.1"
+}

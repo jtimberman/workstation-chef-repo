@@ -1,0 +1,64 @@
+{
+  "groups": [
+    "USERNAME",
+    "wheel",
+    "sysadmin",
+    "dialout",
+    "cdrom",
+    "floppy",
+    "audio",
+    "video",
+    "plugdev",
+    "sambashare",
+    "sbuild"
+  ],
+  "comment": "FULL NAME",
+  "ssh_keys": "SSH public key(s)",
+  "id": "USERNAME",
+  "uid": 1000,
+  "shell": "/bin/zsh",
+  "repos": {
+    /*
+      Repositories that should be checked out. They have the following
+      structure:
+      "path_under_$HOME": {
+        "repo": "git_url_to_repository",
+        "revision": "HEAD"
+      }
+    */
+    // Examples:
+    ".rbenv": {
+      "repo": "git://github.com/sstephenson/rbenv.git",
+      "revision": "HEAD"
+    },
+    ".emacs.d": {
+      "repo": "git@github.com:USERNAME/.emacs.d.git",
+      "revision": "HEAD"
+    },
+    "Development/opscode/chef": {
+      "repo": "git@github.com:USERNAME/chef.git", // your fork of Chef
+      "revision": "HEAD"
+    }
+  },
+  "files": {
+    /*
+      Files that live in users cookbook for the user. For example,
+      dotfiles. Note that in order for Chef to find dot files, they
+      can't start with a dot character. They have the following
+      structure:
+      ".file_under_$HOME": {
+        "mode": "0644",
+        "source": "dot_file"
+      }
+     */
+    // Examples:
+    ".zshrc": {
+      "mode": "0644",
+      "source": "dot-zshrc"
+    },
+    ".gemrc": {
+      "mode": "0644",
+      "source": "dot-gemrc"
+    }
+  }
+}

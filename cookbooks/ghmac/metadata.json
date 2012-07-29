@@ -1,0 +1,30 @@
+{
+  "name": "ghmac",
+  "description": "Installs GitHub Mac.",
+  "long_description": "Description\n===========\n\nInstalls GitHub Mac.\n\nChanges\n=======\n\n## v1.1.0:\n\n* Update to GitHub for Mac version 1.1.\n\nRequirements\n============\n\nOS X and a GitHub account (to use the app).\n\nAttributes\n==========\n\nSee `attributes/default.rb` for default values.\n\n* `node['ghmac']['url']` - URL to retrieve the zip file.\n* `node['ghmac']['checksum']` - sha256sum of the zip file.\n* `node['ghmac']['version']` - version of GitHub Mac.\n* `node['ghmac']['install_to']` - location to extract the .zip.\n\nUsage\n=====\n\nAdd 'ghmac' recipe to a node and run Chef.\n\nLicense and Author\n==================\n\nAuthor:: Joshua Timberman <opensource@housepub.org>\nCopyright:: Copyright (c) 2011, Joshua Timberman\nLicense:: Apache License, Version 2.0\n\nLicensed under the Apache License, Version 2.0 (the \"License\");\nyou may not use this file except in compliance with the License.\nYou may obtain a copy of the License at\n\n   http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an \"AS IS\" BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+  "maintainer": "Joshua Timberman",
+  "maintainer_email": "opensource@housepub.org",
+  "license": "Apache 2.0",
+  "platforms": {
+    "mac_os_x": ">= 0.0.0"
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+  },
+  "version": "1.1.0"
+}

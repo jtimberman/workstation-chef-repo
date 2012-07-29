@@ -1,0 +1,31 @@
+{
+  "name": "homebrew",
+  "description": "Install Homebrew and use it as your package provider in Mac OS X",
+  "long_description": "# Description\n\nThis cookbook installs [Homebrew](http://mxcl.github.com/homebrew/)\nand replaces MacPorts as the *default package provider* for the\npackage resource on OS X systems.\n\nThis cookbook is now maintained by Opscode. The original author,\nmaintainer and copyright holder is Graeme Mathieson. The cookbook\nremains licensed under the Apache License version 2.\n\n[Original blog post by Graeme](http://woss.name/2011/01/23/converging-your-home-directory-with-chef/)\n\n# Requirements\n\n## Prerequisites\n\nIn order for this recipe to work, your userid must own `/usr/local`.\nThis is outside the scope of the cookbook because it’s anticipated\nthat you’ll run the cookbook as your own user, not root and you’d have\nto be root to take ownership of the directory. Easiest way to get\nstarted:\n\n    sudo chown -R `whoami`:staff /usr/local\n\nBear in mind that this will take ownership of the entire folder and its\ncontents, so if you’ve already got stuff in there (eg MySQL owned by a\n`mysql` user) you’ll need to be a touch more careful. This is a\nrecommendation from the Homebrew\n\n## Platform\n\n* Mac OS X (10.6+)\n\nThe only platform supported by Homebrew itself at the time of this\nwriting is Mac OS X. It should work fine on Server edition as well,\nand on platforms that Homebrew supports in the future.\n\n# Resources and Providers\n\n## package / homebrew\\_package\n\nThis cookbook provides a package provider called `homebrew_package`\nwhich will install/remove packages using Homebrew. This becomes the\ndefault provider for `package` if your platform is Mac OS X.\n\nAs this extends the built-in package resource/provider in Chef, it has\nall the resource attributes and actions available to the package\nresource. However, a couple notes:\n\n* Homebrew itself doesn't have a notion of \"upgrade\" per se. The\n  \"upgrade\" action will simply perform an install, and if the Homebrew\n  Formula for the package is newer, it will upgrade.\n* Likewise, Homebrew doesn't have a purge, but the \"purge\" action will\n  act like \"remove\".\n\n### Examples\n\n    package \"mysql\" do\n      action :install\n    end\n\n    homebrew_package \"mysql\"\n\n    package \"mysql\" do\n      provider Chef::Provider::Package::Homebrew\n    end\n\n## homebrew\\_tap\n\nLWRP for `brew tap`, a Homebrew command used to add additional formula\nrepositories. From the `brew` man page:\n\n    tap [tap]\n           Tap a new formula repository from GitHub, or list existing taps.\n\n           tap is of the form user/repo, e.g. brew tap homebrew/dupes.\n\nDefault action is `:tap` which enables the repository. Use `:untap` to\ndisable a tapped repository.\n\n### Examples\n\n    homebrew_tap \"homebrew/dupes\"\n\n    homebrew_tap \"homebrew/dupes\" do\n      action :untap\n    end\n\n# Usage\n\nWe strongly recommend that you put \"recipe[homebrew]\" in your node's\nrun list, to ensure that it is available on the system and that\nHomebrew itself gets installed. Putting an explicit dependency in the\nmetadata will cause the cookbook to be downloaded and the library\nloaded, thus resulting in changing the package provider on Mac OS X,\nso if you have systems you want to use the default (Mac Ports), they\nwould be changed to Homebrew.\n\nThe default itself ensures that Homebrew is installed and up to date.\n\n# License and Author\n\nAuthor:: Graeme Mathieson (<mathie@woss.name>)\n\nCopyright:: 2011, Graeme Mathieson\n\nLicensed under the Apache License, Version 2.0 (the “License”); you may\nnot use this file except in compliance with the License. You may obtain\na copy of the License at\n\n    http://www.apache.org/licenses/LICENSE-2.0\n\nUnless required by applicable law or agreed to in writing, software\ndistributed under the License is distributed on an “AS IS” BASIS,\nWITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\nSee the License for the specific language governing permissions and\nlimitations under the License.\n",
+  "maintainer": "Opscode, Inc.",
+  "maintainer_email": "cookbooks@opscode.com",
+  "license": "Apache 2.0",
+  "platforms": {
+    "mac_os_x": ">= 0.0.0"
+  },
+  "dependencies": {
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "homebrew": "Install Homebrew"
+  },
+  "version": "1.2.0"
+}

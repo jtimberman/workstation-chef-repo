@@ -1,0 +1,60 @@
+{
+  "id": "workstation",
+  "dmgs": {
+    // Applications installed using the dmg_package LWRP.
+    "Dropbox": {
+      "volumes_dir": "Dropbox Installer",
+      "url": "http://cdn.dropbox.com/Dropbox%201.1.35.dmg",
+      "checksum": "8754ce45555c65dfdda4691e4d78b0d7df5315fcf42c86f90c6a03f2c78d9b5e"
+    },
+    "Adium": {
+      "volumes_dir": "Adium 1.4.2",
+      "url": "http://download.adium.im/Adium_1.4.2.dmg",
+      "checksum": "c504c84122433dc4fcc48a05dcb6b6f3e325527e5ee3c2ef2a2c35de11b6aeb3"
+    },
+    "Chicken of the VNC": {
+      "volumes_dir": "Chicken of the VNC",
+      "dmg_name": "cotvnc-20b4",
+      "url": "http://downloads.sourceforge.net/project/cotvnc/cotvnc/Chicken%20of%20the%20VNC%202.0b4/cotvnc-20b4.dmg",
+      "checksum": "804b80372c6ac862f4e3f1230ce846c8daf7897aaa029190521a613e615e5604"
+    },
+    "Emacs": {
+      "url": "http://emacsforosx.com/emacs-builds/Emacs-24.1-universal-10.6.8.dmg",
+      "checksum": "59ca3ee94a155b36c5ef60dfad6aa12d54867ab3d3edd31f1ee5e768b2ba45f7"
+    }
+  },
+  "plists": [
+    // Array of plist file names that get dropped off in
+    // ~/Library/Preferences via mac_os_x_plist
+
+  ],
+  // List of packages and their versions (if any) installed on Linux
+  // systems. These may be different package names than on Homebrew,
+  // so brew installed packages are separate.
+  "packages": {
+    "ack-grep": "",
+    "coreutils": "",
+    "nmap": "",
+    "tree": "",
+    "wget": ""
+  },
+  // Packages that are installed by Homebrew.
+  "brew_packages": {
+    "ack": "",
+    "coreutils": "",
+    "md5sha1sum": "",
+    "openvpn": "",
+    "parallel": "",
+    "pstree": "",
+    "sloccount": "",
+    "tree": "",
+    "wget": ""
+  },
+  "dirs": [
+    // Array of directories that are created in $HOME. Create parent
+    // directories of repositories or files for the user here, e.g.:
+    "bin"
+    "Development",
+    "Development/opscode"
+  ]
+}
